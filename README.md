@@ -2,7 +2,7 @@
 
 A multi-modal deep learning system that analyzes 12-lead ECG signals to predict cardiovascular risk, explain its predictions, and generate personalized clinical intervention recommendations.
 
-Built for the **Byte2Beat Healthcare AI Hackathon 2025**.
+Built for the **Byte2Beat Hack4Health Hackathon 2026**.
 
 ## Overview
 
@@ -61,20 +61,10 @@ The 1D CNN achieves the best AUC (0.8345), while Multi-Modal fusion achieves the
 ```
 Byte2Beat/
 ├── heartguard.ipynb              # Main notebook (end-to-end pipeline)
-├── generate_paper.py             # Research paper PDF generator
-├── generate_paper_docx.py        # Research paper DOCX generator
-├── CLAUDE.md                     # Project specification
-├── README.md                     # This file
 ├── outputs/
-│   ├── HeartGuard_Paper.pdf      # Research paper
-│   ├── HeartGuard_Paper.docx     # Editable research paper
 │   ├── model_metrics.json        # Model performance metrics
 │   ├── extracted_features.csv    # 165 features for all 21,799 ECGs
 │   ├── test_predictions.csv      # Test set predictions from all models
-│   ├── xgboost_model.pkl         # Trained XGBoost model
-│   ├── cnn_model.pth             # Trained 1D CNN (PyTorch)
-│   ├── cnn_lstm_model.pth        # Trained CNN-LSTM (PyTorch)
-│   ├── multimodal_model.pth      # Trained Multi-Modal (PyTorch)
 │   ├── demographics.png          # Dataset demographics visualization
 │   ├── diagnosis_distribution.png
 │   ├── confusion_matrices.png    # All 4 models compared
@@ -83,8 +73,12 @@ Byte2Beat/
 │   ├── gradcam_class_*.png       # Grad-CAM attention heatmaps
 │   ├── population_analysis.png   # Population risk stratification
 │   └── patient_report_*.md       # Sample patient reports
-└── data/
-    └── ptb-xl-1.0.3/             # PTB-XL dataset (not included)
+├── models/
+|   ├── xgboost_model.pkl         # Trained XGBoost model
+│   ├── cnn_model.pth             # Trained 1D CNN (PyTorch)
+│   ├── cnn_lstm_model.pth        # Trained CNN-LSTM (PyTorch)
+|   └── multimodal_model.pth      # Trained Multi-Modal (PyTorch)
+└── HeartGuard.pdf                # Generated research paper includes findings and analysis
 ```
 
 ## Setup
@@ -100,7 +94,6 @@ Byte2Beat/
 pip install numpy pandas matplotlib seaborn plotly kaleido
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
 pip install scikit-learn xgboost shap wfdb scipy
-pip install fpdf2 python-docx  # for paper generation
 ```
 
 ### Dataset
@@ -110,12 +103,6 @@ Download PTB-XL from [PhysioNet](https://physionet.org/content/ptb-xl/1.0.3/) an
 ### Running
 
 Open and run `heartguard.ipynb` end-to-end. The notebook handles data loading, feature extraction, model training, evaluation, explainability, and report generation.
-
-To regenerate the research paper:
-```bash
-python generate_paper.py      # PDF version
-python generate_paper_docx.py # DOCX version
-```
 
 ## System Outputs
 
@@ -141,7 +128,7 @@ Cohort-level risk stratification by demographics, identification of highest-risk
 
 ## Author
 
-**Mostafa Abayazead** | Byte2Beat Healthcare AI Hackathon 2025
+**Mostafa Abayazead** | Byte2Beat Hack4Health Hackathon 2026
 
 ## References
 
